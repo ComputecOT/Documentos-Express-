@@ -14,6 +14,26 @@ Este objeto JSON describe la configuración y composición de documentos para la
     - Sencillas
     - Detalles.
 
+## Interpolación
+
+Todos los campos tanto para información como para configuracion, se encuentran habilitados para el uso de interpolacion, la cual conciste en generar cadenas de texto haciendo uso de las variables en los datos enviados para los registros:
+
+```
+    sintaxis: {{nombre_de_variable}}
+```
+
+#### Ejemplo:
+
+- Se nombran los pdf's de salida con un texto fijo y la variable identificacion de cada registro.
+- Se encriptan los pdf's con la variable identificacion. 
+
+```
+    "document_name": "texto_fijo_mas_variable_{{identificacion}}",
+    "document_password": "{{identificacion}}",
+```
+
+- **Las variables deben existir y se deben referenciar con el mismo nombre enviado en el .xlsx**.
+
 ## Estructura generica (JSON )
 
 ``` 
@@ -293,36 +313,154 @@ Este objeto JSON describe la configuración y composición de documentos para la
         </td>
         <td>Datos de los servicios asociado a la campaña.</td>
     </tr>
+    <tr>
+        <td><code>document_composition</code></td>
+        <td>Object</td>
+        <td>
+            <table>
+               <tr>
+                    <td><code>url_background</code></td>
+                    <td>String</td>
+                    <td>URL de la imagen de fondo.</td>
+               </tr>
+               <tr>
+                    <td><code>url_logo</code></td>
+                    <td>String</td>
+                    <td>URL del logotipo.</td>
+               </tr>
+               <tr>
+                    <td><code>date</code></td>
+                    <td>Object</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><code>title<code></td>
+                                <td>String</td>
+                                <td>Título de la fecha (e.g., "Bogotá,").</td>
+                            </tr>
+                            <tr>
+                                <td><code>value<code></td>
+                                <td>String</td>
+                                <td>Valor de la fecha. </td>
+                            </tr>
+                        </table>
+                    </td>
+               </tr>
+               <tr>
+                    <td><code>window</code></td>
+                    <td>Object</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><code>greeting</code></td>
+                                <td>Object</td>
+                                <td>
+                                     <table>
+                                        <tr>
+                                            <td><code>title</code></td>
+                                            <td>String</td>
+                                            <td>Título del saludo (e.g., "Estimado(a)").</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>value</code></td>
+                                            <td>String</td>
+                                            <td>Saludo.</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td><code>direction</code></td>
+                                 <td>Object</td>
+                                 <td>
+                                     <table>
+                                        <tr>
+                                            <td><code>title</code></td>
+                                            <td>String</td>
+                                            <td>Título de la dirección.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>value</code></td>
+                                            <td>String</td>
+                                            <td>Valor de la dirección.</td>
+                                        </tr>
+                                    </table>
+                                 </td>
+                            </tr>
+                            <tr>
+                                 <td><code>locale</code></td>
+                                 <td>Object</td>
+                                 <td>
+                                     <table>
+                                        <tr>
+                                            <td><code>title</code></td>
+                                            <td>String</td>
+                                            <td>Título de la ubicación.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>value</code></td>
+                                            <td>String</td>
+                                            <td>Valor de ubicación.</td>
+                                        </tr>
+                                    </table>
+                                 </td>
+                            </tr>
+                        </table>
+                    </td>
+               </tr>
+               <tr>
+                    <td><code>subject</code></td>
+                    <td>Object</td>
+                    <td>
+                        <table>
+                        <tr>
+                            <td><code>title</code></td>
+                            <td>String</td>
+                            <td>Título del asunto (e.g., "Asun").</td>
+                        </tr>
+                        <tr>
+                            <td><code>value</code></td>
+                            <td>String</td>
+                            <td>Valor del asunto.</td>
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+               <tr>
+                    <td><code>paragraphs</code></td>
+                    <td>String[]</td>
+                    <td>Array de párrafos del documento.</td>
+               </tr>
+               <tr>
+                    <td><code>signature</code></td>
+                    <td>Object</td>
+                    <td>
+                        <table>
+                             <tr>
+                                 <td><code>title</code></td>
+                                 <td>String</td>
+                                 <td>Título de la firma (e.g., "Atentamente,").</td>
+                             </tr>
+                             <tr>
+                                 <td><code>url_signature</code></td>
+                                 <td>String</td>
+                                 <td>URL de la imagen de la firma.</td>
+                             </tr>
+                             <tr>
+                                 <td><code>signatory</code></td>
+                                 <td>String</td>
+                                 <td>Nombre del firmante.</td>
+                             </tr>
+                             <tr>
+                                 <td><code>description_signatory</code></td>
+                                 <td></td>
+                                 <td>Descripción del firmante (e.g., cargo).</td>
+                             </tr>
+                        </table>
+                    </td>
+               </tr>               
+            </table>
+        </td>
+        <td>Composición del documento.</td>
+    </tr>
 </table>
-
-------------------------
-
-### `document_composition`
-
-| Campo                         | Descripción                                   |
-|-------------------------------|-----------------------------------------------|
-| `url_background`              | URL de la imagen de fondo.                   |
-| `url_logo`                    | URL del logotipo.                            |
-| `date`                        | Información de la fecha.                     |
-| `date.title`                  | Título de la fecha (e.g., "Bogotá,").        |
-| `date.value`                  | Valor de la fecha.                           |
-| `window`                      | Información de la ventana del documento.     |
-| `window.greeting`             | Información del saludo.                      |
-| `window.greeting.title`       | Título del saludo (e.g., "Estimado(a)").     |
-| `window.greeting.value`       | Valor del saludo con marcador de posición (e.g., `{{nombre}}`). |
-| `window.direction`            | Información de la dirección.                 |
-| `window.direction.title`      | Título de la dirección.                      |
-| `window.direction.value`      | Valor de la dirección con marcador de posición (e.g., `{{direccion}}`). |
-| `window.locale`               | Información de la localidad.                 |
-| `window.locale.title`         | Título de la localidad.                      |
-| `window.locale.value`         | Valor de la localidad.                       |
-| `subject`                     | Información del asunto.                      |
-| `subject.title`               | Título del asunto (e.g., "Asunto: ").        |
-| `subject.value`               | Valor del asunto.                            |
-| `paragraphs`                  | Array de párrafos del documento.             |
-| `signature`                   | Información de la firma.                     |
-| `signature.title`             | Título de la firma (e.g., "Atentamente,").   |
-| `signature.QR_value`          | Valor del código QR.                         |
-| `signature.url_signature`     | URL de la imagen de la firma.                |
-| `signature.signatory`         | Nombre del firmante.                         |
-| `signature.description_signatory` | Descripción del firmante (e.g., cargo).    |
