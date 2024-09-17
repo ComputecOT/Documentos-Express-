@@ -14,6 +14,7 @@ Este objeto JSON describe la configuración y composición de documentos para la
     - Sencillas. <a href="./Estructuras/Cartas/Sencilla/Estructura_CS.xlsx" download="Estructura_CS.xlsx">Descargar estructura</a>
     - Detalles. <a href="./Estructuras/Cartas/Detalle/Estructura_CD.xlsx" download="Estructura_CD.xlsx">Descargar estructura</a>
 
+
 ** Es posible renombrar el archivo mas no alterar la estructura pre-establecida, se podran agregar N numero de variables a partir de la columna 9 (I).
 
 ## Interpolación
