@@ -11,8 +11,10 @@ Este objeto JSON describe la configuración y composición de documentos para la
 ## Tipos de de documentos
 
 - Cartas
-    - Sencillas
-    - Detalles.
+    - Sencillas. <a href="./Estructuras/Cartas/Sencilla/Estructura_CS.xlsx" download="Estructura_CS.xlsx">Descargar estructura</a>
+    - Detalles. <a href="./Estructuras/Cartas/Detalle/Estructura_CD.xlsx" download="Estructura_CD.xlsx">Descargar estructura</a>
+
+** Es posible renombrar el archivo mas no alterar la estructura pre-establecida, se podran agregar N numero de variables a partir de la columna 9 (I).
 
 ## Interpolación
 
@@ -28,13 +30,13 @@ Todos los campos tanto para información como para configuracion, se encuentran 
 - Se encriptan los pdf's con la variable identificacion. 
 
 ```
-    "document_name": "texto_fijo_mas_variable_{{identificacion}}",
-    "document_password": "{{identificacion}}",
+    "document_name": "texto_fijo_mas_variable_{{Numero de identificacion}}",
+    "document_password": "{{Numero de identificacion}}",
 ```
 
 - **Las variables deben existir y se deben referenciar con el mismo nombre enviado en el .xlsx**.
 
-## Estructura generica (JSON )
+## Estructura general (JSON )
 
 ``` 
 {
