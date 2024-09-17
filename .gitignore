@@ -1,3 +1,4 @@
 *.wfd
 *.wfs
-resourses/
+resources/
+Estructuras/*.json
