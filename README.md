@@ -1,7 +1,5 @@
 # Generacion de documentos (v.1.0.0)
 
-Este objeto JSON describe la configuración y composición de documentos para la generacion de campañas.
-
 ## Cracteristicas generales
 
 - Estructura generica para documentos personalizados.
@@ -16,6 +14,39 @@ Este objeto JSON describe la configuración y composición de documentos para la
 
 
 ** Es posible renombrar el archivo mas no alterar la estructura pre-establecida, se podran agregar N numero de variables a partir de la columna 9 (I).
+
+## Estructura de la peticion
+
+- Host: Direccion de Quadient.
+- Tipo de solicitud: POST.
+- Cuerpo de la solicitud form-data (multipart) compuesto por 3 partes:
+    - content: Estructura en formato JSON de la descripcion de la campaña. (Contiene el document_create con las especificaciones del documento).
+    - clients: Archivo .xlsx codificado en base64.
+    - nameFile: Nombre del archivo .xlsx.
+- Headers:
+    - Content-Type: multipart/form-data; boundary=calculated when request is sent
+
+```
+    Content-Type: multipart/form-data; boundary=---BoundaryString
+
+    -----BoundaryString
+    Content-Disposition: form-data; name="content"
+
+    {
+        Estructura general   
+    }
+
+    -----BoundaryString
+    Content-Disposition: form-data; name="clients"; filename="clientes.xlsx"
+    Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+    (base64_encoded_content_here)
+    -----BoundaryString
+    Content-Disposition: form-data; name="nameFile"
+
+    name_file.xlsx
+    -----BoundaryString--
+```
 
 ## Interpolación
 
@@ -37,7 +68,8 @@ Todos los campos tanto para información como para configuracion, se encuentran 
 
 - **Las variables deben existir y se deben referenciar con el mismo nombre enviado en el .xlsx**.
 
-## Estructura general (JSON )
+
+## Estructura general (content)
 
 ``` 
 {

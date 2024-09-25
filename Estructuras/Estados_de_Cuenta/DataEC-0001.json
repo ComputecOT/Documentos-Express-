@@ -1,0 +1,130 @@
+{
+    "company_data": {
+        "nit": "",
+        "razon_social": "",
+        "partner": {
+            "nit": "",
+            "razon_social": ""   
+        }
+    }, 
+    "type_document": "tipo del documento: identificador de plantilla",
+    "document_name": "estructura del nombre de documento {{name_variable}}",
+    "document_password": "{{name_variable}}",
+    "services": {        
+        "email": {
+            "service": false,
+            "sender": "",
+            "mask": "",
+            "subject": ""
+        },
+        "sms": {
+            "service": false,
+            "message": "texto fijo {{name_variable}} de inicio texto armado por el cliente"
+        },
+        "generatepdf": {
+            "service": true,
+            "transmission_direction": "direccion de transmision ---> validar este apartado",
+            "user": "usuario de canal",
+            "password": "clave de canal"
+        },
+        "strorage": {
+            "service": false,
+            "time_storage": 3
+        },
+        "print": {
+            "service": false,
+            "type_print": "S o D"
+        }
+    },
+    "document_composition": {
+        "url_background": "",
+        "url_logo": "",
+        "title_document": "texto fijo o {{variable}}",
+        "date": "personalizada si no {{name_variable}} o default = dd de MMMM de yyyy",
+        "window": {
+            "number_product": {
+                "title": "texto fijo o {{variable}}",
+                "value": "{{name_variable}}"
+            },
+            "product": {
+                "title": "texto fijo o {{variable}}",
+                "value": "{{name_variable}}"
+            },
+            "number_day": {
+                "title": "texto fijo o {{variable}}",
+                "value": "{{name_variable}}"
+            }
+        },
+        "table_resume":{
+            "title": "texto fijo o variable {{name_variable}}",
+            "fields": {
+                "field_1":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_2":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_3":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                }
+            }
+        },
+        "table_resume_and_movements":{
+            "title": "texto fijo o variable {{name_variable}}",
+            "fields": {
+                "field_1":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_2":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_3":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_4":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_5":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                },
+                "field_6":{
+                    "title": "",
+                    "value": "{{name_variable}}"
+                }
+            }
+        },        
+        "table_details":{
+            "title": "texto fijo o variable {{name_variable}}",
+            "columns_titles": ["title_1", "title_n"],
+            "columns_values": ["{{name_variable_1}}", "{{name_variable_n}}"]
+        },
+        "observations": {
+            "title": "texto fijo o variable {{name_variable}}",
+            "value": "texto fijo o variable {{name_variable}}"
+        }
+    },
+    "clients": [
+        {
+            "num_identificacion": "",
+            "tipo_identificacion": "",
+            "nombre": "",
+            "direccion": "",
+            "ciudad": "",
+            "departamento": "",
+            "email": "",
+            "celular": "",
+            "variables": {
+                "name_variable_1": "value, n variables",
+                "name_variable_n": "value, n variables"
+            }
+        }
+    ]
+}
